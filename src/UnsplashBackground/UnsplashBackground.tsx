@@ -19,15 +19,19 @@ import {
 
 import './unsplashBackground.css';
 
-interface PropsWithAuthorizedQuery extends AuthorizedQuery, PropsWithChildren {
+interface PropsWithCssProperties {
+  style?: CSSProperties;
+}
+
+interface PropsWithAuthorizedQuery extends AuthorizedQuery, PropsWithCssProperties, PropsWithChildren {
   /** Delay, in milliseconds, before a new image will be fetched. (Default: 5000ms) */
   delay?: number;
 }
-interface PropsWithPhotoId extends QueryWithPhotoId, PropsWithChildren { }
-interface PropsWithCollectionId extends QueryWithCollectionId, PropsWithChildren { }
-interface PropsWithTopicId extends QueryWithTopicId, PropsWithChildren { }
-interface PropsWithUsername extends QueryWithUsername, PropsWithChildren { }
-interface PropsWithKeywords extends QueryWithKeywords, PropsWithChildren { }
+interface PropsWithPhotoId extends QueryWithPhotoId, PropsWithCssProperties, PropsWithChildren { }
+interface PropsWithCollectionId extends QueryWithCollectionId, PropsWithCssProperties, PropsWithChildren { }
+interface PropsWithTopicId extends QueryWithTopicId, PropsWithCssProperties, PropsWithChildren { }
+interface PropsWithUsername extends QueryWithUsername, PropsWithCssProperties, PropsWithChildren { }
+interface PropsWithKeywords extends QueryWithKeywords, PropsWithCssProperties, PropsWithChildren { }
 
 type PropsWithUnauthorizedQuery =
   | PropsWithPhotoId
@@ -85,6 +89,7 @@ function UnsplashBackground({ children, ...props }: UnsplashBackgroundProps): JS
   }, [images, index]);
 
   const style: CSSProperties = {
+    ...props.style,
     ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}),
   };
 
