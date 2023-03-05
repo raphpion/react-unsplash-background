@@ -52,7 +52,7 @@ function UnsplashBackground({ children, ...props }: UnsplashBackgroundProps): JS
     if (!('accessKey' in props)) {
       fetchUnauthorized(props)
         .then((result) => {
-          setImages((images) => [result.url]);
+          setImages((images) => [result]);
         })
         .catch((error) => {
           console.error(error);
@@ -61,6 +61,7 @@ function UnsplashBackground({ children, ...props }: UnsplashBackgroundProps): JS
       fetchAuthorized(props)
         .then((result) => {
           console.log(result);
+          setImages((images) => result);
         })
         .catch((error) => {
           console.error(error);
@@ -75,10 +76,10 @@ function UnsplashBackground({ children, ...props }: UnsplashBackgroundProps): JS
 
     const interval = setInterval(() => {
       setIndex((index) => (index + 1) % images.length);
-    }, props.delay);
+    }, props.delay ?? 5000);
 
     return () => clearInterval(interval);
-  }, [props, index, images]);
+  }, [images]);
 
   const imageUrl = useMemo(() => {
     if (!images.length) {
