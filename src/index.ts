@@ -1,0 +1,1 @@
+export { UnsplashBackground } from './UnsplashBackground';

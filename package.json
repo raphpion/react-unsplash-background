@@ -1,0 +1,49 @@
+{
+  "name": "react-unsplash-background",
+  "version": "0.1.0",
+  "description": "React component to create backgrounds with Unsplash pictures. ",
+  "author": "Raphaël Pion <raph.pion@gmail.com>",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raphpion/react-unsplash-background.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raphpion/react-unsplash-background/issues"
+  },
+  "homepage": "https://github.com/raphpion/react-unsplash-background#readme",
+  "keywords": [
+    "react",
+    "unsplash",
+    "background",
+    "author",
+    "image",
+    "random"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.4.0",
+    "@types/react": "^18.0.28",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  }
+}
